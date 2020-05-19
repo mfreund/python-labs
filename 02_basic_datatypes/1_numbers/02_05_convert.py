@@ -10,3 +10,12 @@ Demonstrate how to:
     Take note of what information is lost when some conversions take place.
 
 '''
+
+x = 10
+x = float(x)
+print(x)
+x // 2
+y = int(input("enter a number: "))
+z = int(input("enter another number: "))
+w = y * z
+print(w)

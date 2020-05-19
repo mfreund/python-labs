@@ -4,3 +4,10 @@ of a cylinder with a radius of 3.14 and a height of 5. Print out the result.
 
 
 '''
+
+import math
+
+r = 3.14
+h = 5
+area = (2*math.pi*r*h) + 2*math.pi*r**2
+print(area)
