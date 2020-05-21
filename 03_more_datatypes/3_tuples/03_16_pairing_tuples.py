@@ -11,3 +11,7 @@ Note: This lab might be challenging! Make sure to discuss it with your mentor
 or chat about it on our forum.
 
 '''
+my_list = input("Please enter a list of numbers: ")
+my_list = my_list.split()
+my_list.sort()
+# zip??
