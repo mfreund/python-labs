@@ -17,3 +17,9 @@ for numbers in range(10):
 list.sort()
 print(list[-1])
 
+result = 1
+for i in list:
+    result = result * i
+print(result)
+
+
