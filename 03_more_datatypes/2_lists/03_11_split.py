@@ -4,3 +4,6 @@ create a list of all the words in the string and print the word with the most
 occurrences.
 
 '''
+
+sentence = input("Please enter a sentence: ")
+x = sentence.split()

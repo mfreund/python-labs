@@ -9,3 +9,11 @@ that we haven't looked at yet. See if you can figure it out, otherwise
 come back to this task after you have learned about loops)
 
 '''
+list = []
+for numbers in range(10):
+    numbers = int(input("Please enter a number: "))
+    list.append(numbers)
+    numbers += 1
+list.sort()
+print(list[-1])
+
