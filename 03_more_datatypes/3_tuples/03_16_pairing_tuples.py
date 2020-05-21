@@ -14,4 +14,13 @@ or chat about it on our forum.
 my_list = input("Please enter a list of numbers: ")
 my_list = my_list.split()
 my_list.sort()
-# zip??
+tuple_list = []
+
+if len(my_list)%2 == 1:
+    my_list.append(0)
+for item in range(0,len(my_list),2):
+    tuple_list.append((my_list[item], my_list[item+1]))
+for tuple in tuple_list:
+    print(tuple)
+
+
