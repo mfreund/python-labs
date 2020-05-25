@@ -10,7 +10,7 @@ come back to this task after you have learned about loops)
 
 '''
 numbers_list = []
-for numbers in range(10):  # Please explain this to me.
+for numbers in range(10):
     numbers = int(input("Please enter a number: "))
     numbers_list.append(numbers)
     numbers += 1
