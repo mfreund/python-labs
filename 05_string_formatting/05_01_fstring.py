@@ -23,11 +23,4 @@ for dict in famous_quotes:
     # fullnames = dict['full_name'].split()
     # first_name = fullnames[0]
     # last_name = fullnames[1:]
-    print(f"{dict['quote']} - {dict['full_name'].split()[1:]} , {dict['full_name'].split()[0]}") #how to go about middle initial?
-
-
-
-
-
-
-
+    print(f"{dict['quote']} - {dict['full_name'].split()[1:]} , {dict['full_name'].split()[0]}")  # how to go about middle initial?

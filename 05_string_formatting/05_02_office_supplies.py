@@ -33,4 +33,4 @@ for dict in office:
     lname = dict['full_name'].split()[1]
     full_name.append(lname)
     sorted_last = sorted(full_name, key=len)
-    print(f"{dict['full_name'].split()[1]}, {dict['full_name'].split()[0]} {dict['item']:>20}") #not sure how to put together
+    print(f"{dict['full_name'].split()[1]}, {dict['full_name'].split()[0]} {dict['item']:>20}")  # not sure how to put together

@@ -10,6 +10,6 @@ The sum is: 5050
 start = int(input("Please enter a number: "))
 end = int(input("Please enter another number: "))
 sum = 0
-for i in range(start,end+1):
+for i in range(start, end + 1):
     sum += i
 print(sum)
