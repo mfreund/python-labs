@@ -19,8 +19,8 @@ famous_quotes = [
     {"full_name": "Alan Bennett", "quote": "Standards are always out of date.  That’s what makes them standards."}
 ]
 
-for dict in famous_quotes:
+for quote in famous_quotes:
     # fullnames = dict['full_name'].split()
     # first_name = fullnames[0]
     # last_name = fullnames[1:]
-    print(f"{dict['quote']} - {dict['full_name'].split()[1:]} , {dict['full_name'].split()[0]}")  # how to go about middle initial?
+    print(f"{quote['quote']} - {quote['full_name'].split()[1:]} , {quote['full_name'].split()[0]}")  # how to go about middle initial?

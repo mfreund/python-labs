@@ -9,15 +9,15 @@ that we haven't looked at yet. See if you can figure it out, otherwise
 come back to this task after you have learned about loops)
 
 '''
-list = []
-for numbers in range(10):
+numbers_list = []
+for numbers in range(10):  # Please explain this to me.
     numbers = int(input("Please enter a number: "))
-    list.append(numbers)
+    numbers_list.append(numbers)
     numbers += 1
-list.sort()
-print(list[-1])
+numbers_list.sort()
+print(numbers_list[-1])
 
 result = 1
-for i in list:
+for i in numbers_list:
     result = result * i
 print(result)

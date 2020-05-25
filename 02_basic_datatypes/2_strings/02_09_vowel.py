@@ -17,5 +17,5 @@ for char in sentence:
     if char in counts:
         counts[char] += 1
 
-for k,v in counts.items():
+for k, v in counts.items():
     print(k, v)
