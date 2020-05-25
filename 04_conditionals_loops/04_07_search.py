@@ -10,7 +10,7 @@ loop_num = 0
 while loop_num != user_num:
     loop_num += 1
 print(loop_num)
-#less nesting
+# less nesting
 
 # while True:
 #     if loop_num == user_num:

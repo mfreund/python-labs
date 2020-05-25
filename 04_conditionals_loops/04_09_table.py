@@ -12,8 +12,8 @@ Use a loop to print the following table to the console:
 # for i in range(0, 50, 10):
 #     print(*[j for j in range(i, i + 10)])
 
-for start in [0,10,20,30,40]:
+for start in [0, 10, 20, 30, 40]:
     print_string = ""
-    for number in range(start,start+10):
+    for number in range(start, start+10):
         print_string += str(number) + " "
     print(print_string)

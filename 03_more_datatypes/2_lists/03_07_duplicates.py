@@ -11,7 +11,7 @@ for i in list_:
         new_list.append(i)
 print(new_list)
 
-#or
+# or
 
 new_list = list(set(list_))
 print(new_list)

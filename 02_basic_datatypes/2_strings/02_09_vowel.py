@@ -12,11 +12,10 @@ vowel = input("Enter a vowel: ")
 count = sentence.count(vowel)
 print("the number of " + vowel + "'s in the sentence is " + str(count))
 
-
-counts = {i:0 for i in 'aeiou'}
+counts = {i: 0 for i in 'aeiou'}  # Did you understand how this works?
 for char in sentence:
     if char in counts:
         counts[char] += 1
 
-for k,v in counts.items():
+for k, v in counts.items():
     print(k, v)

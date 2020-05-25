@@ -9,18 +9,15 @@ import datetime
 
 number = int(input("Please enter a number: "))
 if number > 0 and number < 13:
-    d = datetime.datetime(2000,number,1)
+    d = datetime.datetime(2000, number, 1)
     print(d.strftime("%B"))
 else:
     print("Other")
-
 
 # months = {1: "January",
 #           2: "February",
 #           3: "March"}
 # print(months.get(number, "Other"))
-
-
 
 # if number <= 12 and number >=1:
 #     if number == 1:

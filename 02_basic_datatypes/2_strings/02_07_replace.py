@@ -12,5 +12,3 @@ sentence = input("Enter a sentence: ")
 symbol = input("Enter a symbol: ")
 first = sentence[0]
 print(sentence.replace(first, symbol))
-
-

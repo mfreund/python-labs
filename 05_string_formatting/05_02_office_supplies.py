@@ -28,11 +28,12 @@ office = [
 
 full_name = []
 
+
 #organizes last names
 for dict in office:
     lname = dict['full_name'].split()[1]
     full_name.append((lname, dict['full_name'].split()[0], dict['item']))
-    full_name.sort(key = lambda x: len(x[0]))
+    full_name.sort(key=lambda x: len(x[0]))
 for person in full_name:
     print(f"{person[0]} , {person[1]} {person[2] :>50}")
 
