@@ -23,3 +23,23 @@ BONUS CHALLENGE: write a custom Exception that inherits from Exception and raise
 first 100 characters of any of the files contain the string "Prince".
 
 '''
+import os
+
+#how to open files in another folder???
+
+try:
+    with open('war_and_peace.txt', 'r') as wap:
+        for word in wap.readlines():
+            print(word[0])
+except FileNotFoundError as fnfe:
+    print(fnfe)
+
+with open('crime_and_punishment.txt', 'w') as f:
+    f.write(" ")
+
+try:
+    with open('pride_and_prejudice.txt', 'r') as pap:
+        for word in pap.readlines():
+            print(word[0])
+except IOError as ioerror:
+    print(ioerror)
