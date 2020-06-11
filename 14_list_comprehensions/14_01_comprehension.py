@@ -9,3 +9,6 @@ word = "CodingNomads"
 result_list = ['C', 'o', 'd', 'i', 'n', 'g', 'N', 'o', 'm', 'a', 'd', 's']
 
 '''
+
+result_list = [letters for letters in "CodingNomads"]
+print(result_list)

@@ -12,8 +12,7 @@ file_name = 'integers.txt'
 number = int(input("Please enter a number: "))
 try:
     with open(file_name, 'r') as integers:
-        for integer in integers.readline():
-            first = integer[0]
+        first = int(integers.readline()[0])
 except ValueError as ve:
     print(ve)
 except IOError as ioe:

@@ -25,21 +25,26 @@ first 100 characters of any of the files contain the string "Prince".
 '''
 import os
 
-#how to open files in another folder???
+class PrinceError(Exception):
+    pass
+
 
 try:
-    with open('war_and_peace.txt', 'r') as wap:
-        for word in wap.readlines():
-            print(word[0])
-except FileNotFoundError as fnfe:
+    with open(os.path.join('books', 'war_and_peace.txt'), 'r') as wap:
+        wapcontent = wap.readlines() # list
+        wap.seek(0)
+
+        if "Prince" in wap.read()[0:99]:
+            raise PrinceError("The first 100 characters contain 'Prince'")
+
+except (FileNotFoundError, IsADirectoryError) as fnfe:  # or OSError (general)
     print(fnfe)
 
-with open('crime_and_punishment.txt', 'w') as f:
-    f.write(" ")
+with open(os.path.join('books', 'crime_and_punishment.txt'), 'w') as cap:
+    cap.write(" ") # overwrites
 
 try:
-    with open('pride_and_prejudice.txt', 'r') as pap:
-        for word in pap.readlines():
-            print(word[0])
+    with open(os.path.join('books', 'pride_and_prejudice.txt'), 'r') as pap:
+        print(pap.read()[0])
 except IOError as ioerror:
     print(ioerror)

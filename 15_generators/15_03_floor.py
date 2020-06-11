@@ -4,3 +4,8 @@ Adapt your Generator expression from the previous Exercise
 What numbers do you get?
 
 '''
+
+number_list = (number for number in range(10000))
+
+for number in number_list:
+    number // 1111
