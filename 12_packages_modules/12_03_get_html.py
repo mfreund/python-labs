@@ -9,3 +9,11 @@ TIP:
     very common. head over to SO and find a solution!
 
 '''
+import requests
+
+# response = requests.get("https://codingnomads.co/")
+# print(response.text)
+
+website = requests.get("https://samples.openweathermap.org/data/2.5/weather?id=2172797&appid=439d4b804bc8187953eb36d2a8c26a02")
+weather_data = website.json()
+print(weather_data.get("wind"))

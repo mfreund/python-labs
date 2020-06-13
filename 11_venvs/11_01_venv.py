@@ -10,3 +10,17 @@ In your CodingNomads folder create a new folder. Inside of that folder:
 7. Create a new virtual environment and install the packages from the requirements.txt file.
 
 '''
+
+# IN TERMINAL
+
+# python3 -m venv <env_name>
+# source env_name/bin/activate
+# pip install <package name>
+# pip freeze
+# pip freeze > requirements.txt
+# deactivate
+# rm -rf env_name
+# mkdir <new_file>
+# python3 -m venv new_file/new_env
+# source new_file/new_env/bin/activate
+# pip install -r requirements.txt
