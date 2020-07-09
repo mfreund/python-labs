@@ -22,10 +22,12 @@ import json
 #     pass
 
 with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as csv_file:
-    dict_reader = csv.DictReader(csv_file)  # becomes a dictionary?
+    dict_reader = csv.DictReader(csv_file)
 
     date_list = []     # list of timestamps in the message
     timestamp_list = []
+
+
     writekb_list = []
     readkb_list = []
     os_process_list = []
@@ -44,7 +46,7 @@ with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as cs
     for row in dict_reader:
         message = row['message']
         message = ast.literal_eval(message)     # turns string into <dictionary>
-        # print(json.dumps(message, indent=2))  # used to read properly
+        # print(json.dumps(message, indent=2))  # used to read properly (try .loads)
         date_list.append(message['timestamp'])
         timestamp = row['timestamp']
         timestamp_list.append(timestamp)
@@ -115,23 +117,23 @@ with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as cs
         pg_logical_replication_launcher_list.append(pg_logical_replication_launcher)
         pg_rdsadmin_list.append(pg_rdsadmin)
 
-    print(f"OS Processes: {sum(os_process_list)/len(os_process_list)}")
-    print(f"RDS Processes: {sum(postgres_list)/len(postgres_list)}")
-    print(sum(pg_logger_list)/len(pg_logger_list))
-    print(sum(pg_checkpointer_list)/len(pg_checkpointer_list))
-    print(sum(pg_backgroundwriter_list)/len(pg_backgroundwriter_list))
-    print(sum(pg_walwriter_list)/len(pg_walwriter_list))
-    print(sum(pg_autovacuum_list)/len(pg_autovacuum_list))
-    print(sum(pg_archiver_list)/len(pg_archiver_list))
-    print(sum(pg_stats_collector_list)/len(pg_stats_collector_list))
-    print(sum(pg_logical_replication_launcher_list)/len(pg_logical_replication_launcher_list))
-    print(sum(pg_rdsadmin_list)/len(pg_rdsadmin_list))
-
     print(f"first entry: {date_list[0]} timestamp: {timestamp_list[0]}")
     print(f"last entry: {date_list[-1]} timestamp: {timestamp_list[-1]}\n")
 
     print(f"Total diskIO read for device 'rdsdev': {sum(readkb_list)}")
-    print(f"Total diskIO write for device 'rdsdev': {sum(writekb_list)}")
+    print(f"Total diskIO write for device 'rdsdev': {sum(writekb_list)}\n")
+
+    print(f"OS Processes: {sum(os_process_list)/len(os_process_list)}")
+    print(f"RDS Processes: {sum(postgres_list)/len(postgres_list)}")
+    print(f"postgres: {sum(pg_logger_list)/len(pg_logger_list)}")
+    print(f"postgres checkpointer: {sum(pg_checkpointer_list)/len(pg_checkpointer_list)}")
+    print(f"postgres background writer: {sum(pg_backgroundwriter_list)/len(pg_backgroundwriter_list)}")
+    print(f"postgres walwriter: {sum(pg_walwriter_list)/len(pg_walwriter_list)}")
+    print(f"postgres autovacuum: {sum(pg_autovacuum_list)/len(pg_autovacuum_list)}")
+    print(f"postgres archiver: {sum(pg_archiver_list)/len(pg_archiver_list)}")
+    print(f"postgres stats collector: {sum(pg_stats_collector_list)/len(pg_stats_collector_list)}")
+    print(f"postgres logical replication launcher: {sum(pg_logical_replication_launcher_list)/len(pg_logical_replication_launcher_list)}")
+    print(f"postgres: rdsadmin rdsadmin localhost(24597) idle: {sum(pg_rdsadmin_list)/len(pg_rdsadmin_list)}")
 
 
 # first idea
