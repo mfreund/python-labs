@@ -1,5 +1,5 @@
 """
-Requirements:
+Requirements: TEST REQUIREMENTS
 Parse the input_data/log-events-viewer-result.csv file to provide summary data for:
     - Date & Timestamps of first and last entries.
     - Total CPU Utilisation per 15minutes, 30minutes, 60minutes
@@ -11,6 +11,13 @@ Hints:
     - You may use pure python (no pip installations required), or external packages if you wish
     - Try to understand one line of the log file before diving into all 300+ rows
     - If you can't satisfy every
+
+
+    - split into two methods
+        reading and processes be separate methods (call them separately)
+        do unit tests on processing method
+
+
 """
 import csv
 import os
@@ -21,37 +28,30 @@ import json
 # if __name__ == '__main__':
 #     pass
 
+# reader method
 with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as csv_file:
     dict_reader = csv.DictReader(csv_file)
+
 
     date_list = []     # list of timestamps in the message
     timestamp_list = []
 
+    writekb_list = readkb_list = os_process_list = rds_process_list = postgres_list = \
+        pg_logger_list = pg_checkpointer_list = pg_backgroundwriter_list = \
+        pg_walwriter_list = pg_autovacuum_list = pg_archiver_list = pg_stats_collector_list = \
+        pg_logical_replication_launcher_list = pg_rdsadmin_list = []
 
-    writekb_list = []
-    readkb_list = []
-    os_process_list = []
-    rds_process_list = []
-    postgres_list = []
-    pg_logger_list = []
-    pg_checkpointer_list = []
-    pg_backgroundwriter_list = []
-    pg_walwriter_list = []
-    pg_autovacuum_list = []
-    pg_archiver_list = []
-    pg_stats_collector_list = []
-    pg_logical_replication_launcher_list = []
-    pg_rdsadmin_list = []
 
     for row in dict_reader:
         message = row['message']
         message = ast.literal_eval(message)     # turns string into <dictionary>
-        # print(json.dumps(message, indent=2))  # used to read properly (try .loads)
+        print(json.dumps(message, indent=2))  # used to read properly (try .loads)
         date_list.append(message['timestamp'])
         timestamp = row['timestamp']
         timestamp_list.append(timestamp)
         disk_io = message['diskIO']
         process_list = message['processList']
+        break
 
         writekb = 0
         readkb = 0
@@ -63,20 +63,20 @@ with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as cs
         writekb_list.append(writekb)
         readkb_list.append(readkb)
 
-        os_process = 0
-        rds_process = 0
-        postgres = 0
-        pg_logger = 0
-        pg_checkpointer = 0
-        pg_backgroundwriter = 0
-        pg_walwriter = 0
-        pg_autovacuum = 0
-        pg_archiver = 0
-        pg_stats_collector = 0
-        pg_logical_replication_launcher = 0
-        pg_rdsadmin = 0
+        os_process = rds_process = postgres = pg_logger = pg_checkpointer = pg_backgroundwriter = \
+            pg_walwriter = pg_autovacuum = pg_archiver = pg_stats_collector = \
+            pg_logical_replication_launcher = pg_rdsadmin = 0
+
+        dummy_dict = {'OS processes':(os_process, 'memoryUsedPC')}
+
+
 
         for item in process_list:    # list
+            if value := dummy_dict.get(item['name']):
+                value[0] += item[value[1]]
+
+
+
             if item['name'] == 'OS processes':  # dictionary in list
                 os_process += item['memoryUsedPc']
             elif item['name'] == 'RDS processes':
@@ -101,9 +101,6 @@ with open(os.path.join('input_data', 'log-events-viewer-result.csv'), 'r') as cs
                 pg_logical_replication_launcher += item['memoryUsedPc']
             elif item['name'] == 'postgres: rdsadmin rdsadmin localhost(24597) idle':
                 pg_rdsadmin += item['memoryUsedPc']
-            else:
-                break
-
 
         os_process_list.append(os_process)
         postgres_list.append(postgres)
